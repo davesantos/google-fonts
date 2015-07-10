@@ -18,7 +18,7 @@ $headerColor: #000
 
 .wf-active body, .wf-inactive body
   opacity: 1
-  +transition(opacity 1s ease-out)
+  // +transition(opacity 250ms ease-out)
 
 
 body
@@ -33,8 +33,6 @@ body
 
 a
   text-decoration: none
-
-nav ul
 
 img, video, object, embed
   max-width: 100%
@@ -64,8 +62,10 @@ h1, h2, h3, h4
       // text-transform: uppercase
       +font-size(64px)
       +line-height(64px)
-  .content
-    +squish(4)
+
+  +respond-to(tablet)
+    .content
+      +squish(4)
 
 .header
   top: 0
@@ -95,6 +95,7 @@ ul.caption
   padding: space(1) 0
   &:before
     font-family: 'Chivo', sans-serif
+    font-weight: 400
     margin-right: gutter()
     +font-size(20px)
     color: $caption-color
@@ -191,6 +192,9 @@ ul.caption
       p ~ p
         text-indent: 2em
 
+//================================
+// Stage 3
+//================================
 
 .stage-3
   background: #A17823
@@ -206,6 +210,10 @@ ul.caption
       +font-size(48px)
       +line-height(56px)
       +squish(2)
+
+//================================
+// Stage 4
+//================================
 
 .stage-4
   background: #0c0c0c
@@ -239,11 +247,11 @@ ul.caption
 //================================
 
 .stage-5
-  $thePink: #FFB8CE
-  color: $thePink
-  background: #bbba69
+  background: #CBAE39
   .title
 
+    $thePink: #579CE9
+    color: $thePink
     border: 10px solid $thePink
     display: inline-block
     padding: space(1) gutter()
@@ -256,8 +264,8 @@ ul.caption
     +line-height(48px)
     letter-spacing: 0.01em
     +transform(scale(1,2))
-
-
+  .entry
+    color: #272731
 
   +respond-to(tablet)
     h2
@@ -322,12 +330,19 @@ ul.caption
 //================================
 
 .stage-9
-  background: #731600
-  color: #fff
-  +font-size(72px)
-  font-weight: 900
-  font-family: 'Titillium Web', sans-serif
-
+  background: #ba9359
+  h2
+    text-align: center
+    color: #E44440
+    +font-size(28px)
+    font-weight: 900
+    font-family: 'Titillium Web', sans-serif
+    +respond-to(tablet)
+      +font-size(72px)
+  p
+    +respond-to(tablet)
+      +squish(2)
+    color: #fff
 
 @media only screen and (min-width: 768px)
   body
