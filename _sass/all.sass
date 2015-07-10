@@ -1,0 +1,336 @@
+@import susy
+@import mixins
+
+// 1322 grid
+$total-columns  : 12
+$column-width   : 90px
+$gutter-width   : 20px
+$susy: (columns: $total-columns,gutters: $gutter-width / $column-width, column-width: $column-width, global-box-sizing: border-box )
+//================================
+// Vars
+//================================
+
+$base-line-height: 28px
+
+$base-font-color: #000
+$base-background-color: #eee
+$headerColor: #000
+
+.wf-active body, .wf-inactive body
+  opacity: 1
+  +transition(opacity 1s ease-out)
+
+
+body
+  opacity: 0
+  font-family: 'Open Sans'
+  color: $base-font-color
+  background: $base-background-color
+  +font-size(20px)
+  +line-height(28px)
+  // background: url(http://griddle.it/1300-12-20) repeat-y center top
+  counter-reset: caption-counter
+
+a
+  text-decoration: none
+
+nav ul
+
+img, video, object, embed
+  max-width: 100%
+  height: auto !important
+
+h1, h2, h3, h4
+  font-weight: inherit
+
+.is-smooth
+  -webkit-font-smoothing: antialiased
+
+
+
+//================================
+// Structure
+//================================
+
+.cover
+  background: $base-background-color
+  overflow: hidden
+  +container()
+  padding: space(1) gutter()
+  .title
+    text-align: center
+    h1
+      font-family: 'Archivo Black', sans-serif
+      // text-transform: uppercase
+      +font-size(64px)
+      +line-height(64px)
+  .content
+    +squish(4)
+
+.header
+  top: 0
+  width: 100%
+  background: $base-background-color
+  padding: space(1)/4 0
+  #smooth-btn
+    border: 0
+    background: transparent
+
+.footer
+  text-align: center
+  padding: space(2) 0
+  background: $base-background-color
+
+
+$caption-color: #333
+ul.caption
+  font-family: 'Open Sans', sans-serif
+  +font-size(12px)
+  margin: 0
+  position: absolute
+  width: 100%
+  top: 0
+  text-align: center
+  list-style: none
+  padding: space(1) 0
+  &:before
+    font-family: 'Chivo', sans-serif
+    margin-right: gutter()
+    +font-size(20px)
+    color: $caption-color
+    content: counter(caption-counter)
+    display: block
+
+  li
+
+    display: inline-block
+    font-weight: 700
+    a
+      color: $caption-color
+      +transition(color 250ms ease-out)
+      &:hover
+        color: #fff
+    &::after
+      content: " / "
+      color: $caption-color
+    &:last-child
+      &::after
+        content: none
+
+.stage
+  position: relative
+  min-height: calc(100vh - (28px * 4) )
+  padding-top: $base-line-height*3
+  padding-bottom: $base-line-height
+  max-width: 100vw
+  overflow: hidden
+  display: -webkit-flex
+  -webkit-align-items: center
+  -webkit-justify-content: center
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: column
+  counter-increment: caption-counter
+
+.content
+  +container()
+  padding:0 gutter()
+
+//================================
+// Stage 1
+//================================
+
+.stage-1
+  +font-size(18px)
+  background: #FDF7BA
+  color: #292327
+  font-family: 'Jacques Francois', serif
+  +respond-to(tablet)
+    .title
+      +span(4)
+    .entry
+      +span(8 last)
+      -webkit-column-count: 2
+      h2
+        +font-size(32px)
+        +line-height(36px)
+      +font-size(22px)
+      +line-height(32px)
+
+
+//================================
+// Stage 2
+//================================
+
+.stage-2
+  background: #EC4A31
+  color: white
+  font-family: 'Karla', sans-serif
+  .entry
+    +font-size(16px)
+
+  p
+    margin: 0
+    & ~ p
+      text-indent: 1em
+
+  h2
+    text-align: center
+    font-family: 'Chivo', sans-serif
+    font-weight: 400
+
+  +respond-to(tablet)
+    h2
+      +font-size(96px)
+      letter-spacing: -0.03em
+    .entry
+      +squish(2)
+      +font-size(18px)
+      -webkit-column-count: 2
+      p ~ p
+        text-indent: 2em
+
+
+.stage-3
+  background: #A17823
+  .content
+    color: #1B852D
+    +font-size(28px)
+    +line-height(32px)
+    letter-spacing: 0.01em
+    // text-transform: uppercase
+    font-family: 'Montserrat', sans-serif
+    font-weight: 700
+    +respond-to(tablet)
+      +font-size(48px)
+      +line-height(56px)
+      +squish(2)
+
+.stage-4
+  background: #0c0c0c
+  color: white
+
+  .custom .word2
+    font-family: 'Playfair Display', serif
+    +font-size(64px)
+  h2
+    font-family: 'Archivo Black', sans-serif
+    text-align: center
+
+  .content
+    // font-family: 'Archivo Narrow', sans-serif
+    font-family: 'Merriweather', serif
+    +font-size(16px)
+
+  +respond-to(tablet)
+
+    h2
+      font-family: 'Archivo Black', sans-serif
+      +font-size(84px)
+      +line-height(100px)
+      // border-bottom: 20px solid
+      // display: inline-block
+    .entry
+      +squish(3)
+
+//================================
+// Stage 5
+//================================
+
+.stage-5
+  $thePink: #FFB8CE
+  color: $thePink
+  background: #bbba69
+  .title
+
+    border: 10px solid $thePink
+    display: inline-block
+    padding: space(1) gutter()
+
+  h2
+    font-family: 'Oswald', sans-serif
+    text-transform: uppercase
+    font-weight: 700
+    +font-size(32px)
+    +line-height(48px)
+    letter-spacing: 0.01em
+    +transform(scale(1,2))
+
+
+
+  +respond-to(tablet)
+    h2
+      +font-size(64px)
+      +line-height(64px)
+      letter-spacing: 0.01em
+      +transform(scale(1,2))
+    .entry
+      +squish(3)
+
+//================================
+// Stage 6
+//================================
+
+.stage-6
+  background: #ffee80
+  color: #030032
+  h2
+    font-family: 'Sorts Mill Goudy', serif
+    // text-transform: uppercase
+    font-weight: 500
+    // letter-spacing: 0.09em
+    +font-size(56px)
+    +line-height(56px)
+    text-align: center
+
+  +respond-to(tablet)
+    h2
+      +font-size(144px)
+      +line-height(136px)
+      text-align: left
+    .content
+      font-family: 'Archivo Narrow', sans-serif
+      +squish(4)
+
+//================================
+// Stage 7
+//================================
+
+.stage-7
+  font-family: 'Old Standard TT', serif
+
+
+
+.stage-8
+  background: #008F63
+  h2
+    +font-size(72px)
+    +line-height(112px)
+    text-transform: uppercase
+
+    font-family: 'Lato', sans-serif
+    letter-spacing: 0.04em
+    .word1
+      font-weight: 100
+    .word2
+      font-weight: 400
+    .word3
+      font-weight: 900
+//================================
+// Stage 9
+//================================
+
+.stage-9
+  background: #731600
+  color: #fff
+  +font-size(72px)
+  font-weight: 900
+  font-family: 'Titillium Web', sans-serif
+
+
+@media only screen and (min-width: 768px)
+  body
+
+// @media only screen and (min-width: 1030px)
+// @media only screen and (min-width: 1240px)
