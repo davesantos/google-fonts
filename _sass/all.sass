@@ -372,6 +372,26 @@ ul.caption
         margin: 0 0 -0.05em 0
         padding: 0 0.1em 0 0
 
+//================================
+// Stage 11
+//================================
+
+.stage-11
+  background: #eee
+  h2
+    +font-family('Stint Ultra Expanded')
+    text-transform: uppercase
+  h3
+    text-transform: uppercase
+    +font-family('Stint Ultra Condensed')
+
+  +respond-to(tablet)
+    h2
+      +font-size(72px)
+      letter-spacing: 0.05em
+    h3
+      +font-size(48px)
+
 @media only screen and (min-width: 768px)
   body
 
