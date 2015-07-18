@@ -15,7 +15,8 @@ html(lang="en")
         if fonts
           ul.caption
             each font, i in fonts
-              li: a(href=font[1])= font[0]
+              li: a(href='https://www.google.com/fonts/specimen/' + font[0].replace(/\s+/g, '+') )= font[0]
+
         if block
           .content
             block
