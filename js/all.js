@@ -1,5 +1,7 @@
 WebFontConfig = {
   google: { families: [
+    'Stint+Ultra+Expanded::latin',
+    'Ultra::latin',
     'Archivo+Black::latin',
     'Archivo+Narrow::latin',
     'Cardo:400,400italic:latin',
@@ -15,8 +17,12 @@ WebFontConfig = {
     'Old+Standard+TT::latin',
     'Open+Sans:400,800,700,300:latin',
     'Oswald:400,700,300:latin',
+    'Rubik+Mono+One::latin',
     'Sorts+Mill+Goudy::latin',
+    'Stint+Ultra+Condensed::latin',
     'Titillium+Web:400,200,700,900,600:latin',
+    'Varela+Round::latin',
+    'Varela::latin',
     'Vollkorn::latin'
   ]}
 };
@@ -48,8 +54,11 @@ WebFontConfig = {
 
   },
   setupLetter = function() {
-    var title = $('.custom');
-    title.lettering('words');
+    var w = $('.words'),
+        l = $('.letters');
+
+    w.lettering('words');
+    l.lettering();
   },
   controls = function(){
 
