@@ -1,9 +1,9 @@
 var gulp = require('gulp'),
+	browserSync = require('browser-sync'),
 	changed = require('gulp-changed'),
-	gutil = require('gulp-util'),
+	cleanCSS = require('gulp-clean-css'),
 	sass = require('gulp-sass'),
-	jade = require('gulp-jade'),
-	livereload = require('gulp-livereload'),
+ 	pug = require('gulp-pug'),
 	prettify = require('gulp-prettify');
 
 var paths = {
@@ -14,25 +14,34 @@ var paths = {
 function errorHandler(error) {
 	console.error(String(error));
 	this.emit('end');
-	gutil.beep();
+	browserSync.notify('Error');
 }
 
 gulp.task('sass', function(){
 	gulp.src(paths.sass + '/**/*.{sass,scss}')
 		.pipe(sass().on('error', errorHandler))
+		.pipe( cleanCSS({
+		  debug: true,
+		  keepBreaks: true,
+		  keepSpecialComments: false
+		}, function(details) {
+		  console.log(details.name + ': ' + details.stats.originalSize);
+		  console.log(details.name + ': ' + details.stats.minifiedSize);
+		}) )
 		.pipe(gulp.dest(paths.css))
-		.pipe(livereload());
+		.pipe(browserSync.reload({stream:true}))
 });
 
-gulp.task('jade', function(){
-	gulp.src('./*.jade')
+gulp.task('pug', function(){
+	gulp.src('./*.pug')
 		.pipe(changed('.', {extension: '.html'}))
-		.pipe(jade({
+		.pipe(pug({
 			pretty: true
 		}))
-		.pipe(gulp.dest('.'))
-		.pipe(livereload());
+		.pipe(gulp.dest('.'));
+		browserSync.reload();
 })
+
 
 gulp.task('indent', function(){
 	gulp.src('*.html')
@@ -47,12 +56,19 @@ gulp.task('indent', function(){
 });
 
 
-gulp.task('watch', function(){
-	livereload.listen();
+gulp.task('serve', ['sass'], function() {
+
+  browserSync.init({
+	  server: {
+      baseDir: "./"
+    }
+  });
+
 	gulp.watch( paths.sass + '/**/*.{sass,scss}', ['sass']);
-	gulp.watch('./*.jade', ['jade']);
-	gulp.watch(['./js/*']).on('change', livereload.changed );
+	gulp.watch('./*.pug', ['pug']);
+	gulp.watch(['./js/*']).on('change', browserSync.reload );
+
 })
 
-gulp.task('default', ['sass', 'watch']);
+gulp.task('default', ['serve']);
 

@@ -23,7 +23,8 @@ WebFontConfig = {
     'Titillium+Web:400,200,700,900,600:latin',
     'Varela+Round::latin',
     'Varela::latin',
-    'Vollkorn::latin'
+    'Vollkorn::latin',
+    'Work+Sans:400,900,800,700,600,500,300,200,100:latin'
   ]}
 };
 (function() {
@@ -49,9 +50,6 @@ WebFontConfig = {
     setupLetter();
     anchorBlank();
     console.log('init')
-
-
-
   },
   setupLetter = function() {
     var w = $('.words'),
@@ -66,13 +64,10 @@ WebFontConfig = {
         sBtn = $('#smooth-btn');
 
     header.scrollToFixed();
-
     sBtn.on( 'click', function() {
-
       body.toggleClass('is-smooth');
 
     });
-
   },
   anchorBlank = function () {
     $('a').each(function() {
