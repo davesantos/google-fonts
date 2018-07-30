@@ -1,5 +1,6 @@
 {
   "name": "google-fonts",
+  "description": "A showcase of use cases with Google Fonts catalog",
   "author": "Dave Santos <info@davesantos.com> (https://davesantos.com)",
   "devDependencies": {
     "browser-sync": "^2.24.6",
@@ -12,5 +13,9 @@
   "license": "MIT",
   "dependencies": {
     "gulp-prettify": "^0.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davesantos/google-fonts.git"
   }
 }
