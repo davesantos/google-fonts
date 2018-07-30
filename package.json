@@ -8,11 +8,13 @@
     "gulp-changed": "^3.2.0",
     "gulp-clean-css": "3.9.4",
     "gulp-pug": "^2.0.0",
-    "gulp-sass": "4.0.1"
+    "gulp-sass": "4.0.1",
+    "gulp-prettify": "^0.5.0"
   },
   "license": "MIT",
   "dependencies": {
-    "gulp-prettify": "^0.5.0"
+    "hoek": "^5.0.3",
+    "minimatch": "^3.0.4"
   },
   "repository": {
     "type": "git",
