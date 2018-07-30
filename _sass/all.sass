@@ -4,7 +4,7 @@
 //
 //------------------------------------------------------------
 
-@import '../bower_components/normalize-css/normalize.css'
+@import '../bower_components/normalize.css/normalize.css'
 @import 'base/bourbon/bourbon'
 @import 'base/variables'
 
@@ -75,13 +75,7 @@ h1, h2, h3, h4
 //
 //------------------------------------------------------------
 
-.cover
-  overflow: hidden
-  .title
-    text-align: center
-    h1
-      font-family: 'Archivo Black', sans-serif
-      font-size: modular-scale(8)
+
 
 .header
   top: 0
@@ -130,6 +124,17 @@ ul.caption
       &::after
         content: none
 
+.cover
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: column
+  .title
+    text-align: center
+    h1
+      font-family: 'Archivo Black', sans-serif
+      font-size: modular-scale(8)
+
 .stage
   display: flex
   align-items: center
@@ -137,7 +142,8 @@ ul.caption
   flex-direction: column
   counter-increment: caption-counter
   max-width: 100vw
-  min-height: calc( 100vh )
+  width: 100%
+  min-height: calc(100vh)
   overflow: hidden
   padding-bottom: spacing(2)
   padding-top: spacing(5)

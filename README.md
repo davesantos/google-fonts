@@ -1,5 +1,3 @@
+# Google Fonts
 
-Personal starter of Dave Santos
-
-
-
+> A showcase of use cases with the Google Font catalog
