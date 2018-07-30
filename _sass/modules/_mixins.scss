@@ -1,19 +1,5 @@
 //------------------------------------------------------------
 //
-//  Placeholders
-//
-//------------------------------------------------------------
-
-//https://web-design-weekly.com/2013/05/12/handy-sass-mixins/
-
-%strip-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-//------------------------------------------------------------
-//
 //  Functions
 //
 //------------------------------------------------------------
@@ -31,25 +17,6 @@
 //  Mixins
 //
 //------------------------------------------------------------
-
-@mixin font-family($font, $serif: false) {
-  @if $serif {
-    font-family: $font, serif;
-  }
-  @else {
-    font-family: $font, sans-serif;
-  }
-}
-
-@mixin font-smoothing($boolean: true) {
-  @if $boolean {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  } @else {
-    -webkit-font-smoothing: subpixel-antialiased;
-     -moz-osx-font-smoothing: auto;
-  }
-}
 
 @mixin breakpoint($break: 0, $max: 0) {
   // Type of break variable
